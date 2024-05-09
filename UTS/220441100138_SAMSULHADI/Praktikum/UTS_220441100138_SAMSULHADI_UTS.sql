@@ -1,3 +1,4 @@
+--UPDATED
 CREATE DATABASE IF NOT EXISTS toko_buku;
 
 USE toko_buku;
