@@ -173,3 +173,4 @@ COMMIT;
 ROLLBACK;
 
 DROP PROCEDURE IF EXISTS DeleteMaleMembersWithNonZeroStatus;
+
