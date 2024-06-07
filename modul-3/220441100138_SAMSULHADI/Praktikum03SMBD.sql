@@ -12,7 +12,7 @@ BEGIN
     SELECT * FROM anggota WHERE Status_Pinjam = statusPinjam;
 END;
 DELIMITER;
-CALL GetAnggotaByStatus('');
+CALL GetAnggotaByStatus('Tidak Aktif');
 SELECT * FROM anggota;
 DROP PROCEDURE IF EXISTS GetAnggotaByStatus;
 
@@ -59,7 +59,7 @@ BEGIN
     VALUES (kodePeminjaman, idAnggota, idPetugas, tglPinjam, tglKembali, kodeBuku);
 END;
 DELIMITER;
-CALL InsertPeminjaman('PJ012', 'A001', 'P001', '2024-04-10', '2024-04-20', 'B001');
+CALL InsertPeminjaman('PJ013', 'A001', 'P001', '2024-04-10', '2024-04-20', 'B001');
 SELECT * FROM peminjaman;
 DROP PROCEDURE IF EXISTS InsertPeminjaman;
 
@@ -68,7 +68,7 @@ DROP PROCEDURE IF EXISTS InsertPeminjaman;
 DELIMITER //
 CREATE PROCEDURE CountAnggota(OUT totalAnggota INT)
 BEGIN
-    SELECT COUNT(*) INTO totalAnggota FROM anggota;
+    SELECT COUNT(IdAnggota) INTO totalAnggota FROM anggota;
 END;
 DELIMITER;
 CALL CountAnggota(@totalAnggota);
@@ -87,7 +87,7 @@ BEGIN
 END;
 DELIMITER ;
 
-CALL HitungBanyakGender('Perempuan',@hasil);
+CALL HitungBanyakGender('Laki-laki',@hasil);
 SELECT @hasil;
 DROP PROCEDURE IF EXISTS UpdateStatusAnggota
 
